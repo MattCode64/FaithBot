@@ -2,9 +2,16 @@ from langchain.document_loaders import DirectoryLoader
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.chroma import Chroma
+from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings
+import os
+import shutil
 
 DATA_PATH = "/home/matthieu/UbuntuData/PycharmProjects/FaithBot/Bible Data/All Books"
 CHROMA_PATH = "chroma"
+
+# Embedding :
+embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
+embedding = HuggingFaceEmbeddings(model_name=embedding_model)
 
 
 def load_documents() -> list[Document]:
