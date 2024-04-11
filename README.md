@@ -3,6 +3,10 @@
 ## Description
 This is a LLM (Large Language Model) based chatbot that can be used to answer questions about the Christian faith. It is based on the Mistral model. The chatbot is designed to be used in a conversational manner, where the user can ask questions and the chatbot will respond with relevant information. The technology used to build the chatbot is the RAG method (Retrieval-Augmented Generation), which is a combination of a retrieval model and a generative model. The retrieval model is used to find relevant passages from a knowledge base, and the generative model is used to generate responses based on the retrieved passages. It is designed to provide accurate and informative answers to questions about the Christian History.
 
+## Note
+I choose the Bible documentation because I found that it is a good way to RAG a model. And also because I already knew that the Bible where available in markdown format.
+
+
 ## Installation
 
 ### Ollama
