@@ -1,4 +1,4 @@
-from langchain.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import DirectoryLoader
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.chroma import Chroma
@@ -34,16 +34,17 @@ def split_documents(documents: list[Document]):
     print(f"Number of chunks: {len(chunks)} for {len(documents)} documents")
 
     document = chunks[3]
-    print(f"Page content : {document.page_content}")
+    # print(f"Page content : {document.page_content}")
     # print(f"Page number : {document.page_number}")
-    print(document.metadata)
+    # print(document.metadata)
 
-    print(type(chunks))
+    # print(type(chunks))
     print(f"Split Documents, Done!")
     return chunks
 
 
 def save_to_chroma(chunks: list[Document]):
+    print(f"Saving {len(chunks)} documents to Chroma {CHROMA_PATH} ...")
     if os.path.exists(CHROMA_PATH):
         shutil.rmtree(CHROMA_PATH)
 
@@ -58,6 +59,7 @@ def generate_database():
     documents = load_documents()
     chunks = split_documents(documents)
     save_to_chroma(chunks)
+    print(f"Generate Database for RAG, Done!")
 
 
 def main():
